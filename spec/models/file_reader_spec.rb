@@ -1,11 +1,12 @@
 require 'rails_helper'
 
-describe 'get /query' do
+describe FileReader do
 
-  it 'reads in a text file and returns a json blob' do
+  it 'reads in a file ' do
 
+    file_reader = FileReader.new
 
-    get '/query', {}, {'Accept' => 'application/json'}
+    actual = file_reader.to_hash
 
     expected = [
       {
@@ -30,9 +31,6 @@ describe 'get /query' do
       },
     ]
 
-    expect(response.code.to_i).to eq 200
-    expect(JSON.parse(response.body)).to eq(expected)
+    expect(actual).to eq expected
   end
-
-
 end
