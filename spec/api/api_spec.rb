@@ -10,13 +10,13 @@ describe 'get /query' do
     expected = [
       {
         "filename" => "opposites.txt",
-        "key" => "Led Zeppelin",
-        "value" => "lameness"
+        "key" => "Boulder, CO",
+        "value" => "Houston"
       },
       {
         "filename" => "opposites.txt",
-        "key" => "platypuses",
-        "value" => "likely things"
+        "key" => "Led Zeppelin",
+        "value" => "lameness"
       },
       {
         "filename" => "opposites.txt",
@@ -25,14 +25,18 @@ describe 'get /query' do
       },
       {
         "filename" => "opposites.txt",
-        "key" => "Boulder, CO",
-        "value" => "Houston"
+        "key" => "Led Zeppelin",
+        "value" => "more stuff"
+      },
+      {
+        "filename" => "opposites.txt",
+        "key" => "platypuses",
+        "value" => "likely things"
       },
     ]
 
     expect(response.code.to_i).to eq 200
     expect(JSON.parse(response.body)).to eq(expected)
   end
-
 
 end
