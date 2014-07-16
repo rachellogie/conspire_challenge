@@ -8,36 +8,14 @@ describe FileReader do
 
     actual = file_reader.to_hash
 
-    expected =  [
+    partial_expected =
       {
-        "filename" => "opposites.txt",
+        "filename" => "claims_to_fame.txt",
         "key" => "Boulder, CO",
-        "value" => "Houston"
-      },
-      {
-        "filename" => "opposites.txt",
-        "key" => "Led Zeppelin",
-        "value" => "lameness"
-      },
-      {
-        "filename" => "opposites.txt",
-        "key" => "Led Zeppelin",
-        "value" => "Maroon 5"
-      },
-      {
-        "filename" => "opposites.txt",
-        "key" => "Led Zeppelin",
-        "value" => "more stuff"
-      },
-      {
-        "filename" => "opposites.txt",
-        "key" => "platypuses",
-        "value" => "likely things"
-      },
-    ]
+        "value" => "mountains and marijuana"
+      }
 
-    expect(actual).to eq expected
+    expect(actual).to include partial_expected
   end
-
 
 end

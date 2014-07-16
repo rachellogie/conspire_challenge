@@ -25,9 +25,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :test, :development do
   gem 'rspec-rails', '~> 3.0.1'
+  gem 'dotenv-rails', '~> 0.11.1'
 end
 
 gem 'rails-api', '~> 0.2.1'
+
+gem 'fog', '~> 1.22.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
