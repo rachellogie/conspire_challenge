@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe FileParser do
 
-  it 'reads in a file and returns an array of hashes' do
+  it 'parses a textfile and returns an array of hashes' do
 
     input = <<HEREDOC
 Led Zeppelin\tlameness
