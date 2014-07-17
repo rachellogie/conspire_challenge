@@ -33,7 +33,6 @@ class FileReader
     object.body
   end
 
-
   def get_files_from_bucket
     bucket = @connection.get_bucket(@bucket)
     bucket.body["Contents"].map { |object| object["Key"] }

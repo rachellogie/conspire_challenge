@@ -170,7 +170,7 @@ describe ArraySorter do
     expect(actual).to eq expected
   end
 
-  it 'returns array in proper order if more than 3 letters are given' do
+  it 'returns array in proper order if superfluous letters are given' do
     array_sorter = ArraySorter.new(@input)
 
     expected = [
@@ -207,6 +207,10 @@ describe ArraySorter do
     ]
 
     actual = array_sorter.sort_lines('ffffvkvvvkffkkvkkvvkvkvf')
+
+    expect(actual).to eq expected
+
+    actual = array_sorter.sort_lines('ffjdsavlkenwbdsk')
 
     expect(actual).to eq expected
   end

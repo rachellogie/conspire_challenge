@@ -11,7 +11,7 @@ class ArraySorter
   end
 
   def complete_order(order)
-    order = remove_duplicates(order)
+    order = remove_extra_letters(order)
     if order.length == 2
       order = add_third_letter(order)
     elsif order.length == 1
@@ -40,8 +40,9 @@ class ArraySorter
     end
   end
 
-  def remove_duplicates(order)
-    order.chomp.split("").uniq.join("")
+  def remove_extra_letters(order)
+    letters = order.chomp.split("").uniq.select { |letter| letter =~ /[fkv]/}
+    letters.join("")
   end
 
   def get_search_words(order)
