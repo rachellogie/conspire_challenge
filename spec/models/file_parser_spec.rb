@@ -11,9 +11,7 @@ Led Zeppelin\tMaroon 5
 Boulder, CO\tHouston
 HEREDOC
 
-    file_name =  File.basename(File.expand_path('../../spec/fixtures/opposites.txt', __dir__))
-
-    actual = FileParser.new(input, file_name).parse_file
+    actual = FileParser.new(input, 'opposites.txt').parse_file
 
     expected = [
       {"filename" => "opposites.txt", "key" => "Led Zeppelin", "value" => "lameness"},

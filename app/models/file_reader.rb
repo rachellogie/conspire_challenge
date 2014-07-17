@@ -19,6 +19,8 @@ class FileReader
     ArraySorter.new(all_lines).sort_lines(sort_order)
   end
 
+  private
+
   def make_array_of_lines(list_of_files)
     array_of_lines = []
     list_of_files.each do |file|

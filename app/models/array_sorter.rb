@@ -10,39 +10,22 @@ class ArraySorter
     @array_of_lines.sort_by { |line_object| [line_object[first_word].downcase, line_object[second_word].downcase, line_object[third_word].downcase] }
   end
 
+  private
+
   def complete_order(order)
     order = remove_extra_letters(order)
-    if order.length == 2
-      order = add_third_letter(order)
-    elsif order.length == 1
-      order = add_second_letter(order)
-    end
+    order = add_letters(order) if order.length < 3
     order
-  end
-
-  def add_second_letter(order)
-    if order == "f"
-      order += "kv"
-    elsif order == "k"
-      order += "fv"
-    elsif order == "v"
-      order += "fk"
-    end
-  end
-
-  def add_third_letter(order)
-    if !order.include? "k"
-      order += "k"
-    elsif !order.include? "f"
-      order += "f"
-    elsif  !order.include? "v"
-      order += "v"
-    end
   end
 
   def remove_extra_letters(order)
     letters = order.chomp.split("").uniq.select { |letter| letter =~ /[fkv]/}
     letters.join("")
+  end
+
+  def add_letters(order)
+    order = order + "fvk"
+    remove_extra_letters(order)
   end
 
   def get_search_words(order)

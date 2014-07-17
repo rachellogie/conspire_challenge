@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe FileReader do
 
-  it 'reads in all the files in the bucket' do
+  it 'reads in all the files in the bucket and returns a hash' do
     file_reader = FileReader.new
 
     actual = file_reader.to_hash('f')

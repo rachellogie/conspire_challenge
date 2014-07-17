@@ -34,13 +34,11 @@ describe ArraySorter do
         "key" => "finally moving",
         "value" => "boo"
       },
-
     ]
+    @array_sorter = ArraySorter.new(@input)
   end
 
   it 'returns an array sorted properly when given 3 letters' do
-
-    array_sorter = ArraySorter.new(@input)
 
     expected = [
       {
@@ -75,15 +73,13 @@ describe ArraySorter do
       },
     ]
 
-    actual = array_sorter.sort_lines('vkf')
+    actual = @array_sorter.sort_lines('vkf')
 
     expect(actual).to eq expected
   end
 
   it 'returns array in proper order when given only 1 letter (or 2 or 3 of the same letter)' do
 
-    array_sorter = ArraySorter.new(@input)
-
     expected = [
       {
         "filename" => "a.txt",
@@ -116,21 +112,20 @@ describe ArraySorter do
         "value" => "lameness"
       },
     ]
-    actual = array_sorter.sort_lines('k')
+    actual = @array_sorter.sort_lines('k')
 
     expect(actual).to eq expected
 
-    actual = array_sorter.sort_lines('kk')
+    actual = @array_sorter.sort_lines('kk')
 
     expect(actual).to eq expected
 
-    actual = array_sorter.sort_lines('kkk')
+    actual = @array_sorter.sort_lines('kkk')
 
     expect(actual).to eq expected
   end
 
   it 'returns array in proper order when given only 2 letters' do
-    array_sorter = ArraySorter.new(@input)
 
     expected = [
       {
@@ -165,13 +160,12 @@ describe ArraySorter do
       },
     ]
 
-    actual = array_sorter.sort_lines('fv')
+    actual = @array_sorter.sort_lines('fv')
 
     expect(actual).to eq expected
   end
 
   it 'returns array in proper order if superfluous letters are given' do
-    array_sorter = ArraySorter.new(@input)
 
     expected = [
       {
@@ -206,11 +200,11 @@ describe ArraySorter do
       },
     ]
 
-    actual = array_sorter.sort_lines('ffffvkvvvkffkkvkkvvkvkvf')
+    actual = @array_sorter.sort_lines('ffffvkvvvkffkkvkkvvkvkvf')
 
     expect(actual).to eq expected
 
-    actual = array_sorter.sort_lines('ffjdsavlkenwbdsk')
+    actual = @array_sorter.sort_lines('ffjdsavlkenwbdsk')
 
     expect(actual).to eq expected
   end
